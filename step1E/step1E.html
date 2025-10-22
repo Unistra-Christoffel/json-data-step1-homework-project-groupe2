@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <script>
+    let priorities = [
+      {
+        "idPriority": 1,
+        "priority": "Très important"
+      },
+      {
+        "idPriority": 2,
+        "priority": "Important"
+      },
+      {
+        "idPriority": 3,
+        "priority": "Peu important"
+      },
+      {
+        "idPriority": 3,
+        "priority": "Pas important"
+      }
+    ];
 
+    console.log("Priorités", priorities);
+
+    let categories = [
+      {
+        "idCategory": 1,
+        "category": "Perso"
+      },
+      {
+        "idCategory": 2,
+        "category": "Pro"
+      },
+      {
+        "idCategory": 3,
+        "category": "Étude"
+      }
+    ]
+
+    console.log("Catégories", categories);
+
+    let tags = [
+      {
+        "idTag": 1,
+        "tag": "Santé"
+      },
+      {
+        "idTag": 2,
+        "tag": "Loisirs"
+      },
+      {
+        "idTag": 3,
+        "tag": "Maison"
+      },
+      {
+        "idTag": 4,
+        "tag": "Réunion"
+      },
+      {
+        "idTag": 5,
+        "tag": "Email"
+      },
+      {
+        "idTag": 6,
+        "tag": "Appel"
+      },
+      {
+        "idTag": 7,
+        "tag": "Devoirs"
+      },
+      {
+        "idTag": 8,
+        "tag": "Recherche"
+      },
+      {
+        "idTag": 9,
+        "tag": "Cours"
+      }
+    ]
+
+    console.log("Étiquettes", tags);
+
+    let tasks = [
+      {
+        "idTask": 1,
+        "position": 1,
+        "title": "Envoyer email à monsieur Christoffel",
+        "note": "Au sujet du devoir sur les données JSON",
+        "completed": false,
+        "dateCreated": 1761148800000,
+        "dateFinished": 1761753600000,
+        "idPriority": 1,
+        "idCategory": 3,
+        "idTag": [5,7]
+      },
+      {
+        "idTask": 2,
+        "position": 2,
+        "title": "Acheter pépites de chocolat",
+        "note": "Pour faire des cookies",
+        "completed": false,
+        "dateCreated": 1761152400000,
+        "dateFinished": 1761325200000,
+        "idPriority": 3,
+        "idCategory": 1,
+        "idTag": [3]
+      }
+    ]
+
+    console.log("Tâches", tasks);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
