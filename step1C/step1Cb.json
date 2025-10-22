@@ -1,1 +1,38 @@
-
+[
+  {
+    "idTag": 1,
+    "tag": "Santé"
+  },
+  {
+    "idTag": 2,
+    "tag": "Loisirs"
+  },
+  {
+    "idTag": 3,
+    "tag": "Maison"
+  },
+  {
+    "idTag": 4,
+    "tag": "Réunion"
+  },
+  {
+    "idTag": 5,
+    "tag": "Email"
+  },
+  {
+    "idTag": 6,
+    "tag": "Appel"
+  },
+  {
+    "idTag": 7,
+    "tag": "Devoirs"
+  },
+  {
+    "idTag": 8,
+    "tag": "Recherche"
+  },
+  {
+    "idTag": 9,
+    "tag": "Cours"
+  }
+]

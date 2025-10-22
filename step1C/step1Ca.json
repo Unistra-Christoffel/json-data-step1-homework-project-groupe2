@@ -1,1 +1,14 @@
-
+[
+  {
+    "idCategory": 1,
+    "category": "Perso"
+  },
+  {
+    "idCategory": 2,
+    "category": "Pro"
+  },
+  {
+    "idCategory": 3,
+    "category": "Étude"
+  }
+]
