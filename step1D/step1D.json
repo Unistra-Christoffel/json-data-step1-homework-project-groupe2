@@ -8,7 +8,8 @@
     "idStatus": 1,
     "idPriority": 1,
     "idCategory": 3,
-    "idTag": [5,7]
+    "idTag": [5,7],
+    "idManager": 1
   },
   {
     "idTask": 2,
@@ -19,6 +20,7 @@
     "idStatus": 4,
     "idPriority": 3,
     "idCategory": 1,
-    "idTag": [3]
+    "idTag": [3],
+    "idManager": 1
   }
 ]
