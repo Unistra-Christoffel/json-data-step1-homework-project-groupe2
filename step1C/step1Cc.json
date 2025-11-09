@@ -1,1 +1,18 @@
-
+[
+  {
+    "idManager": 1,
+    "manager": "Stéphane"
+  },
+  {
+    "idManager": 2,
+    "manager": "Pierre"
+  },
+  {
+    "idManager": 3,
+    "manager": "Paul"
+  },
+  {
+    "idManager": 4,
+    "manager": "Jacques"
+  }
+]
