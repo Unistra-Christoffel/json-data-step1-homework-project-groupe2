@@ -1,24 +1,22 @@
 [
   {
     "idTask": 1,
-    "position": 1,
     "title": "Envoyer email à monsieur Christoffel",
     "note": "Au sujet du devoir sur les données JSON",
-    "completed": false,
-    "dateCreated": 1761148800000,
-    "dateFinished": 1761753600000,
+    "dateCreated": "2025-10-22",
+    "dateFinished": "2025-10-29",
+    "idStatus": 1,
     "idPriority": 1,
     "idCategory": 3,
     "idTag": [5,7]
   },
   {
     "idTask": 2,
-    "position": 2,
     "title": "Acheter pépites de chocolat",
     "note": "Pour faire des cookies",
-    "completed": false,
-    "dateCreated": 1761152400000,
-    "dateFinished": 1761325200000,
+    "dateCreated": "2025-10-22",
+    "dateFinished": "2025-10-24",
+    "idStatus": 4,
     "idPriority": 3,
     "idCategory": 1,
     "idTag": [3]
