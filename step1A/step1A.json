@@ -1,9 +1,7 @@
 {
   "idTask": 1,
-  "position": 1,
   "title": "Envoyer email à monsieur Christoffel",
   "note": "Au sujet du devoir sur les données JSON",
-  "completed": false,
-  "dateCreated": 1761148800000,
-  "dateFinished": 1761753600000
+  "dateCreated": "2025-10-22",
+  "dateFinished": "2025-10-29"
 }
