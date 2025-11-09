@@ -1,0 +1,26 @@
+[
+  {
+    "idStatus": 1,
+    "status": "A faire"
+  },
+  {
+    "idStatus": 2,
+    "status": "En cours"
+  },
+  {
+    "idStatus": 3,
+    "status": "En attente"
+  },
+  {
+    "idStatus": 4,
+    "status": "Terminé"
+  },
+  {
+    "idStatus": 5,
+    "status": "Annulé"
+  },
+  {
+    "idStatus": 6,
+    "status": "Reporté"
+  }
+]
