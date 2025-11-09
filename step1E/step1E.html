@@ -5,22 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO</title>
   <script>
+    let statuses = [
+      {
+        "idStatus": 1,
+        "status": "A faire"
+      },
+      {
+        "idStatus": 2,
+        "status": "En cours"
+      },
+      {
+        "idStatus": 3,
+        "status": "En attente"
+      },
+      {
+        "idStatus": 4,
+        "status": "Terminé"
+      },
+      {
+        "idStatus": 5,
+        "status": "Annulé"
+      },
+      {
+        "idStatus": 6,
+        "status": "Reporté"
+      }
+    ]
+
+    console.log("Statuts", statuses);
+
     let priorities = [
       {
         "idPriority": 1,
-        "priority": "Très important"
+        "priority": "Très basse"
       },
       {
         "idPriority": 2,
-        "priority": "Important"
+        "priority": "Basse"
       },
       {
         "idPriority": 3,
-        "priority": "Peu important"
+        "priority": "Moyenne"
       },
       {
-        "idPriority": 3,
-        "priority": "Pas important"
+        "idPriority": 4,
+        "priority": "Haute"
+      },
+      {
+        "idPriority": 5,
+        "priority": "Critique"
       }
     ];
 
@@ -84,30 +117,51 @@
 
     console.log("Étiquettes", tags);
 
+    let managers = [
+      {
+        "idManager": 1,
+        "manager": "Stéphane"
+      },
+      {
+        "idManager": 2,
+        "manager": "Pierre"
+      },
+      {
+        "idManager": 3,
+        "manager": "Paul"
+      },
+      {
+        "idManager": 4,
+        "manager": "Jacques"
+      }
+    ]
+
+    console.log("Responsables", managers);
+
     let tasks = [
       {
         "idTask": 1,
-        "position": 1,
         "title": "Envoyer email à monsieur Christoffel",
         "note": "Au sujet du devoir sur les données JSON",
-        "completed": false,
-        "dateCreated": 1761148800000,
-        "dateFinished": 1761753600000,
+        "dateCreated": "2025-10-22",
+        "dateFinished": "2025-10-29",
+        "idStatus": 1,
         "idPriority": 1,
         "idCategory": 3,
-        "idTag": [5,7]
+        "idTag": [5,7],
+        "idManager": 1
       },
       {
         "idTask": 2,
-        "position": 2,
         "title": "Acheter pépites de chocolat",
         "note": "Pour faire des cookies",
-        "completed": false,
-        "dateCreated": 1761152400000,
-        "dateFinished": 1761325200000,
+        "dateCreated": "2025-10-22",
+        "dateFinished": "2025-10-24",
+        "idStatus": 4,
         "idPriority": 3,
         "idCategory": 1,
-        "idTag": [3]
+        "idTag": [3],
+        "idManager": 1
       }
     ]
 
