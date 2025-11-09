@@ -1,18 +1,22 @@
 [
   {
     "idPriority": 1,
-    "priority": "Très important"
+    "priority": "Très basse"
   },
   {
     "idPriority": 2,
-    "priority": "Important"
+    "priority": "Basse"
   },
   {
     "idPriority": 3,
-    "priority": "Peu important"
+    "priority": "Moyenne"
   },
   {
     "idPriority": 4,
-    "priority": "Pas important"
+    "priority": "Haute"
+  },
+  {
+    "idPriority": 5,
+    "priority": "Critique"
   }
 ]
