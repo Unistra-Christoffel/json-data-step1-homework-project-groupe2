@@ -1,1 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <script>
+    let statuses = [
+      {
+        "idStatus": 1,
+        "status": "A faire"
+      },
+      {
+        "idStatus": 2,
+        "status": "En cours"
+      },
+      {
+        "idStatus": 3,
+        "status": "En attente"
+      },
+      {
+        "idStatus": 4,
+        "status": "Terminé"
+      },
+      {
+        "idStatus": 5,
+        "status": "Annulé"
+      },
+      {
+        "idStatus": 6,
+        "status": "Reporté"
+      }
+    ]
 
+    console.log("Statuts", statuses);
+
+    let priorities = [
+      {
+        "idPriority": 1,
+        "priority": "Très basse"
+      },
+      {
+        "idPriority": 2,
+        "priority": "Basse"
+      },
+      {
+        "idPriority": 3,
+        "priority": "Moyenne"
+      },
+      {
+        "idPriority": 4,
+        "priority": "Haute"
+      },
+      {
+        "idPriority": 5,
+        "priority": "Critique"
+      }
+    ];
+
+    console.log("Priorités", priorities);
+
+    let categories = [
+      {
+        "idCategory": 1,
+        "category": "Perso"
+      },
+      {
+        "idCategory": 2,
+        "category": "Pro"
+      },
+      {
+        "idCategory": 3,
+        "category": "Étude"
+      }
+    ]
+
+    console.log("Catégories", categories);
+
+    let tags = [
+      {
+        "idTag": 1,
+        "tag": "Santé"
+      },
+      {
+        "idTag": 2,
+        "tag": "Loisirs"
+      },
+      {
+        "idTag": 3,
+        "tag": "Maison"
+      },
+      {
+        "idTag": 4,
+        "tag": "Réunion"
+      },
+      {
+        "idTag": 5,
+        "tag": "Email"
+      },
+      {
+        "idTag": 6,
+        "tag": "Appel"
+      },
+      {
+        "idTag": 7,
+        "tag": "Devoirs"
+      },
+      {
+        "idTag": 8,
+        "tag": "Recherche"
+      },
+      {
+        "idTag": 9,
+        "tag": "Cours"
+      }
+    ]
+
+    console.log("Étiquettes", tags);
+
+    let managers = [
+      {
+        "idManager": 1,
+        "manager": "Stéphane"
+      },
+      {
+        "idManager": 2,
+        "manager": "Pierre"
+      },
+      {
+        "idManager": 3,
+        "manager": "Paul"
+      },
+      {
+        "idManager": 4,
+        "manager": "Jacques"
+      }
+    ]
+
+    console.log("Responsables", managers);
+
+    let tasks = [
+      {
+        "idTask": 1,
+        "title": "Envoyer email à monsieur Christoffel",
+        "note": "Au sujet du devoir sur les données JSON",
+        "dateCreated": "2025-10-22",
+        "dateFinished": "2025-10-29",
+        "idStatus": 1,
+        "idPriority": 1,
+        "idCategory": 3,
+        "idTag": [5,7],
+        "idManager": 1
+      },
+      {
+        "idTask": 2,
+        "title": "Acheter pépites de chocolat",
+        "note": "Pour faire des cookies",
+        "dateCreated": "2025-10-22",
+        "dateFinished": "2025-10-24",
+        "idStatus": 4,
+        "idPriority": 3,
+        "idCategory": 1,
+        "idTag": [3],
+        "idManager": 1
+      }
+    ]
+
+    console.log("Tâches", tasks);
+  </script>
+  <style>
+    body {
+      font-size: 14px;
+    }
+
+    .form-field,
+    button,
+    p {
+      margin: 10px 0;
+    }
+
+    .form-field label {
+      display: block;
+    }
+
+    .form-field label,
+    .form-field legend,
+    p {
+      font-size: 12px;
+    }
+
+    .form-field {
+      margin: 10px 0;
+    }
+
+    .form-field label,
+    .form-field input,
+    .form-field textarea,
+    .form-field fieldset,
+    .form-field select {
+      width: 100%;
+      max-width: 400px;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .form-field fieldset > div {
+      display: inline-block;
+      width: calc(50% - 2px);
+    }
+
+    .form-field fieldset input,
+    .form-field fieldset label {
+      width: auto;
+      display: inline;
+    }
+
+    .form-field fieldset label {
+      font-size: 14px;
+    }
+
+    .required {
+      color: #ff0000;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Créer / Modifier une tâche</h1>
+
+  <form action="#" method="post">
+    <!-- Titre -->
+    <div class="form-field">
+      <label for="title">
+        Titre 
+        <span class="required">*</span>
+      </label>
+      <input type="text" id="title" name="title" required>
+    </div>
+
+    <!-- Note -->
+    <div class="form-field">
+      <label for="note">Note</label>
+      <textarea id="note" name="note" rows="4"></textarea>
+    </div>
+
+    <!-- Date de fin -->
+    <div class="form-field">
+      <label for="dateFinished">
+        Date de fin
+        <span class="required">*</span>
+      </label>
+      <input type="date" id="dateFinished" name="dateFinished" required>
+    </div>
+
+    <!-- Statut -->
+    <div class="form-field">
+      <label for="idStatus">
+        Statut
+        <span class="required">*</span>
+      </label>
+      <select id="idStatus" name="idStatus" required>
+        <option value="1">A faire</option>
+        <option value="2">En cours</option>
+        <option value="3">En attente</option>
+        <option value="4">Terminé</option>
+        <option value="5">Annulé</option>
+        <option value="6">Reporté</option>
+      </select>
+    </div>
+
+    <!-- Priorité -->
+    <div class="form-field">
+      <label for="idPriority">
+        Priorité
+        <span class="required">*</span>
+      </label>
+      <select id="idPriority" name="idPriority" required>
+        <option value="1">Très basse</option>
+        <option value="2">Basse</option>
+        <option value="3">Moyenne</option>
+        <option value="4">Haute</option>
+        <option value="5">Critique</option>
+      </select>
+    </div>
+
+    <!-- Catégorie -->
+    <div class="form-field">
+      <label for="idCategory">
+        Catégorie
+        <span class="required">*</span>
+      </label>
+      <select id="idCategory" name="idCategory" required>
+        <option value="1">Perso</option>
+        <option value="2">Pro</option>
+        <option value="3">Étude</option>
+      </select>
+    </div>
+
+    <!-- Étiquettes (tags) -->
+    <div class="form-field">
+      <fieldset>
+        <legend>Étiquettes</legend>
+        <div>
+          <input type="checkbox" id="tag1" name="idTag" value="1">
+          <label for="tag1">Santé</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag2" name="idTag" value="2">
+          <label for="tag2">Loisirs</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag3" name="idTag" value="3">
+          <label for="tag3">Maison</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag4" name="idTag" value="4">
+          <label for="tag4">Réunion</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag5" name="idTag" value="5">
+          <label for="tag5">Email</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag6" name="idTag" value="6">
+          <label for="tag6">Appel</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag7" name="idTag" value="7">
+          <label for="tag7">Devoirs</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag8" name="idTag" value="8">
+          <label for="tag8">Recherche</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tag9" name="idTag" value="9">
+          <label for="tag9">Cours</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- Responsable -->
+    <div class="form-field">
+      <label for="idManager">
+        Responsable
+        <span class="required">*</span>
+      </label>
+      <select id="idManager" name="idManager" required>
+        <option value="1">Stéphane</option>
+        <option value="2">Pierre</option>
+        <option value="3">Paul</option>
+        <option value="4">Jacques</option>
+      </select>
+    </div>
+
+    <!-- Bouton d’envoi -->
+    <button type="submit">Enregistrer</button>
+
+    <!-- Indication -->
+    <p>
+      <span class="required">*</span>
+      Champ obligatoire
+    </p>
+  </form>
+</body>
+</html>
