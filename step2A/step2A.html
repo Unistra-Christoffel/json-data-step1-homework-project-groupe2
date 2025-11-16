@@ -32,8 +32,6 @@
       }
     ]
 
-    console.log("Statuts", statuses);
-
     let priorities = [
       {
         "idPriority": 1,
@@ -57,8 +55,6 @@
       }
     ];
 
-    console.log("Priorités", priorities);
-
     let categories = [
       {
         "idCategory": 1,
@@ -74,98 +70,9 @@
       }
     ]
 
-    console.log("Catégories", categories);
-
-    let tags = [
-      {
-        "idTag": 1,
-        "tag": "Santé"
-      },
-      {
-        "idTag": 2,
-        "tag": "Loisirs"
-      },
-      {
-        "idTag": 3,
-        "tag": "Maison"
-      },
-      {
-        "idTag": 4,
-        "tag": "Réunion"
-      },
-      {
-        "idTag": 5,
-        "tag": "Email"
-      },
-      {
-        "idTag": 6,
-        "tag": "Appel"
-      },
-      {
-        "idTag": 7,
-        "tag": "Devoirs"
-      },
-      {
-        "idTag": 8,
-        "tag": "Recherche"
-      },
-      {
-        "idTag": 9,
-        "tag": "Cours"
-      }
-    ]
-
-    console.log("Étiquettes", tags);
-
-    let managers = [
-      {
-        "idManager": 1,
-        "manager": "Stéphane"
-      },
-      {
-        "idManager": 2,
-        "manager": "Pierre"
-      },
-      {
-        "idManager": 3,
-        "manager": "Paul"
-      },
-      {
-        "idManager": 4,
-        "manager": "Jacques"
-      }
-    ]
-
-    console.log("Responsables", managers);
-
-    let tasks = [
-      {
-        "idTask": 1,
-        "title": "Envoyer email à monsieur Christoffel",
-        "note": "Au sujet du devoir sur les données JSON",
-        "dateCreated": "2025-10-22",
-        "dateFinished": "2025-10-29",
-        "idStatus": 1,
-        "idPriority": 1,
-        "idCategory": 3,
-        "idTag": [5,7],
-        "idManager": 1
-      },
-      {
-        "idTask": 2,
-        "title": "Acheter pépites de chocolat",
-        "note": "Pour faire des cookies",
-        "dateCreated": "2025-10-22",
-        "dateFinished": "2025-10-24",
-        "idStatus": 4,
-        "idPriority": 3,
-        "idCategory": 1,
-        "idTag": [3],
-        "idManager": 1
-      }
-    ]
-
-    console.log("Tâches", tasks);
+    function save() {
+      // Save to local storage for next time
+    }
   </script>
   <style>
     body {
@@ -230,7 +137,7 @@
 <body>
   <h1>Créer / Modifier une tâche</h1>
 
-  <form action="#" method="post">
+  <form id="taskWebform">
     <!-- Titre -->
     <div class="form-field">
       <label for="title">
@@ -262,6 +169,7 @@
         <span class="required">*</span>
       </label>
       <select id="idStatus" name="idStatus" required>
+        <option value="">--Choisir--</option>
         <option value="1">A faire</option>
         <option value="2">En cours</option>
         <option value="3">En attente</option>
@@ -278,6 +186,7 @@
         <span class="required">*</span>
       </label>
       <select id="idPriority" name="idPriority" required>
+        <option value="">--Choisir--</option>
         <option value="1">Très basse</option>
         <option value="2">Basse</option>
         <option value="3">Moyenne</option>
@@ -293,6 +202,7 @@
         <span class="required">*</span>
       </label>
       <select id="idCategory" name="idCategory" required>
+        <option value="">--Choisir--</option>
         <option value="1">Perso</option>
         <option value="2">Pro</option>
         <option value="3">Étude</option>
@@ -301,63 +211,16 @@
 
     <!-- Étiquettes (tags) -->
     <div class="form-field">
-      <fieldset>
-        <legend>Étiquettes</legend>
-        <div>
-          <input type="checkbox" id="tag1" name="idTag" value="1">
-          <label for="tag1">Santé</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag2" name="idTag" value="2">
-          <label for="tag2">Loisirs</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag3" name="idTag" value="3">
-          <label for="tag3">Maison</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag4" name="idTag" value="4">
-          <label for="tag4">Réunion</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag5" name="idTag" value="5">
-          <label for="tag5">Email</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag6" name="idTag" value="6">
-          <label for="tag6">Appel</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag7" name="idTag" value="7">
-          <label for="tag7">Devoirs</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag8" name="idTag" value="8">
-          <label for="tag8">Recherche</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tag9" name="idTag" value="9">
-          <label for="tag9">Cours</label>
-        </div>
-      </fieldset>
-    </div>
-
-    <!-- Responsable -->
-    <div class="form-field">
-      <label for="idManager">
-        Responsable
-        <span class="required">*</span>
+      <label for="tags">
+        Etiquettes<br>
+        (merci de séparer les étiquettes par une ",")
       </label>
-      <select id="idManager" name="idManager" required>
-        <option value="1">Stéphane</option>
-        <option value="2">Pierre</option>
-        <option value="3">Paul</option>
-        <option value="4">Jacques</option>
-      </select>
+      <input type="text" id="tags" name="tags">
+    </div>
     </div>
 
     <!-- Bouton d’envoi -->
-    <button type="submit">Enregistrer</button>
+    <button type="submit" onclick="save()">Enregistrer</button>
 
     <!-- Indication -->
     <p>
