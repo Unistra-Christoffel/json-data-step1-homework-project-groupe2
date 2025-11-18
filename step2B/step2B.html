@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <script>
+    let statuses = [
+      {
+        "idStatus": 1,
+        "status": "A faire"
+      },
+      {
+        "idStatus": 2,
+        "status": "En cours"
+      },
+      {
+        "idStatus": 3,
+        "status": "En attente"
+      },
+      {
+        "idStatus": 4,
+        "status": "Terminé"
+      },
+      {
+        "idStatus": 5,
+        "status": "Annulé"
+      },
+      {
+        "idStatus": 6,
+        "status": "Reporté"
+      }
+    ]
 
+    
+
+    let priorities = [
+      {
+        "idPriority": 1,
+        "priority": "Très basse"
+      },
+      {
+        "idPriority": 2,
+        "priority": "Basse"
+      },
+      {
+        "idPriority": 3,
+        "priority": "Moyenne"
+      },
+      {
+        "idPriority": 4,
+        "priority": "Haute"
+      },
+      {
+        "idPriority": 5,
+        "priority": "Critique"
+      }
+    ];
+
+    let categories = [
+      {
+        "idCategory": 1,
+        "category": "Perso"
+      },
+      {
+        "idCategory": 2,
+        "category": "Pro"
+      },
+      {
+        "idCategory": 3,
+        "category": "Étude"
+      }
+    ]
+
+    document.onreadystatechange = function () {
+      if (document.readyState == "complete") {
+        initApplication();
+      }
+    };
+
+    function initApplication() {
+      statuses.forEach(function(item, index) {
+        let option = `<option value="${item.idStatus}">${item.status}</option>`;
+        document.getElementById('idStatus').insertAdjacentHTML('beforeend', option);
+      }),
+
+      priorities.forEach(function(item, index) {
+        let option = `<option value="${item.idPriority}">${item.priority}</option>`;
+        document.getElementById('idPriority').insertAdjacentHTML('beforeend', option);
+      });
+      
+      categories.forEach(function(item, index) {
+        let option = `<option value="${item.idCategory}">${item.category}</option>`;
+        document.getElementById('idCategory').insertAdjacentHTML('beforeend', option);
+      });
+    }
+
+    function save() { 
+      let tasks = [];
+
+      let idTask = tasks.length + 1;
+
+      let idCategory = '';
+      if (document.getElementById('idCategory').reportValidity()) {
+        idCategory = parseInt(document.getElementById('idCategory').value);
+      }
+
+      let idPriority = '';
+      if (document.getElementById('idPriority').reportValidity()) {
+        idPriority = parseInt(document.getElementById('idPriority').value);
+      }
+
+      let idStatus = '';
+      if (document.getElementById('idStatus').reportValidity()) {
+        idStatus = parseInt(document.getElementById('idStatus').value);
+      }
+
+      let dateFinished = '';
+      if (document.getElementById('dateFinished').reportValidity()) {
+        dateFinished = document.getElementById('dateFinished').value;
+      }
+
+      let title = '';
+      if (document.getElementById('title').reportValidity()) {
+        title = document.getElementById('title').value;
+      }
+
+      let note = document.getElementById('note').value;
+
+      let tags = [];
+      let tagsArray = document.getElementById('tags').value.split(",");
+      tagsArray.forEach(function(item, index) {
+        tags.push(item.trim());
+      });
+
+
+      if (idCategory && idPriority && idStatus && dateFinished && title) {
+        let newTask = {
+          "idTask": idTask,
+          "title": title,
+          "note": note,
+          "dateFinished": dateFinished,
+          "idStatus": idStatus,
+          "idPriority": idPriority,
+          "idCategory": idCategory,
+          "tags": tags
+        };
+        console.log(newTask);
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-size: 14px;
+    }
+
+    .form-field,
+    button,
+    p {
+      margin: 10px 0;
+    }
+
+    .form-field label {
+      display: block;
+    }
+
+    .form-field label,
+    .form-field legend,
+    p {
+      font-size: 12px;
+    }
+
+    .form-field {
+      margin: 10px 0;
+    }
+
+    .form-field label,
+    .form-field input,
+    .form-field textarea,
+    .form-field fieldset,
+    .form-field select {
+      width: 100%;
+      max-width: 400px;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .form-field fieldset > div {
+      display: inline-block;
+      width: calc(50% - 2px);
+    }
+
+    .form-field fieldset input,
+    .form-field fieldset label {
+      width: auto;
+      display: inline;
+    }
+
+    .form-field fieldset label {
+      font-size: 14px;
+    }
+
+    .required {
+      color: #ff0000;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Créer / Modifier une tâche</h1>
+
+  <form id="taskWebform">
+    <!-- Titre -->
+    <div class="form-field">
+      <label for="title">
+        Titre 
+        <span class="required">*</span>
+      </label>
+      <input type="text" id="title" name="title" required>
+    </div>
+
+    <!-- Note -->
+    <div class="form-field">
+      <label for="note">Note</label>
+      <textarea id="note" name="note" rows="4"></textarea>
+    </div>
+
+    <!-- Date de fin -->
+    <div class="form-field">
+      <label for="dateFinished">
+        Date de fin
+        <span class="required">*</span>
+      </label>
+      <input type="date" id="dateFinished" name="dateFinished" required>
+    </div>
+
+    <!-- Statut -->
+    <div class="form-field">
+      <label for="idStatus">
+        Statut
+        <span class="required">*</span>
+      </label>
+      <select id="idStatus" name="idStatus" required>
+        <option value="">--Choisir--</option>
+      </select>
+    </div>
+
+    <!-- Priorité -->
+    <div class="form-field">
+      <label for="idPriority">
+        Priorité
+        <span class="required">*</span>
+      </label>
+      <select id="idPriority" name="idPriority" required>
+        <option value="">--Choisir--</option>
+      </select>
+    </div>
+
+    <!-- Catégorie -->
+    <div class="form-field">
+      <label for="idCategory">
+        Catégorie
+        <span class="required">*</span>
+      </label>
+      <select id="idCategory" name="idCategory" required>
+        <option value="">--Choisir--</option>
+      </select>
+    </div>
+
+    <!-- Étiquettes (tags) -->
+    <div class="form-field">
+      <label for="tags">
+        Etiquettes<br>
+        (merci de séparer les étiquettes par une ",")
+      </label>
+      <input type="text" id="tags" name="tags">
+    </div>
+
+    <!-- Bouton d’envoi -->
+    <button type="button" onclick="save()">Enregistrer</button>
+
+    <!-- Indication -->
+    <p>
+      <span class="required">*</span>
+      Champ obligatoire
+    </p>
+  </form>
+</body>
+</html>
